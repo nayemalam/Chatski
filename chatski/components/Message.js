@@ -7,6 +7,9 @@ export default ({sender, text, timestamp}) => (
     <Text style={styles.name}>
       {sender} {timestamp}
     </Text>
+    <Text style={styles.message}>
+    {text}
+    </Text>
   </View>
 )
 

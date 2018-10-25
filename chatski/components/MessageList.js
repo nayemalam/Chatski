@@ -2,7 +2,7 @@
 import React from 'react'
 
 //importing viewport and text from react-native library
-import {StyleSheet, TextInput, View} from 'react-native'
+import {StyleSheet, TextInput, View, Text} from 'react-native'
 
 //import message.js
 import Message from './Message'
@@ -18,13 +18,13 @@ state = {
   {
     id: 1,
     sender: 'Nayem Alam',
-    text: 'Yo famm',
+    text: 'One bottle of beer on the wall',
     timestamp: '1 month ago',
   },
   {
     id: 2,
     sender: 'Mathias Collum',
-    text: 'Helllo',
+    text: 'Three bottles of beer on the wall',
     timestamp: '2 hours ago',
   },
   {
@@ -50,6 +50,7 @@ addMessage = () => {
   if(text.length< 1) {
     return;
   }
+  console.log("Debug: ", text)
 
   const currentDate = new Date(); // get js Date
 
@@ -62,10 +63,8 @@ addMessage = () => {
 
   this.setState ({
     messages: [...this.state.messages, newMsg],
-    newMsgText: '',
+    newMsgText: ' ',
   })
-
-
 }
 
 // every React component needs a render component
@@ -98,7 +97,6 @@ addMessage = () => {
 
     return (
       <View style={styles.container}>
-
       {this.state.messages.map(msg=> (
         <Message
         key={msg.id}
@@ -109,11 +107,11 @@ addMessage = () => {
       ))}
 
       <TextInput
-        placeholder="What's on your mind?"
+        placeholder="What's on your mind Dhoumbi?"
         value={this.state.newMsgText}
         onChangeText={this.UpdateMessage}
         onSubmitEditing={this.addMessage}
-        style={{height: 70, padding: 10}}
+        style={{height: 70, padding: 15}}
       />
       </View>
     );
@@ -123,6 +121,6 @@ addMessage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 22,
+    paddingTop: 50,
   }
 });
