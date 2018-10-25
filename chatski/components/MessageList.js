@@ -20,23 +20,29 @@ export default class MessageList extends React.Component {
     const messages = [
     {
       id: 1,
+      sender: 'Nayem Alam',
       text: 'Yo famm',
+      timestamp: '1 month ago',
     },
     {
       id: 2,
+      sender: 'Mathias Collum',
       text: 'Helllo',
+      timestamp: '2 hours ago',
     },
     {
       id: 3,
+      sender: 'Kap G',
       text: 'Testing',
+      timestamp: '2 minutes ago',
     },
   ];
 
     return (
-      <View>
+      <View style={styles.container}>
 
       {messages.map(msg=> (
-        <Message key={msg.id} text={msg.text} />
+        <Message key={msg.id} sender={msg.sender} text={msg.text} timestamp={msg.timestamp} />
       ))}
 
       <TextInput
